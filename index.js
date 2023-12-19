@@ -20,9 +20,12 @@ var createCounter = function (init) {
   };
 };
 
-/**
- * const counter = createCounter(5)
- * counter.increment(); // 6
- * counter.reset(); // 5
- * counter.decrement(); // 4
- */
+var counter = createCounter(0);
+
+console.log(counter.increment()); // 1
+console.log(counter.increment()); // 2
+
+console.log(counter.decrement()); // 1
+
+console.log(counter.reset()); // 0
+console.log(counter.reset()); // 0
