@@ -1,19 +1,27 @@
 /**
- * @param {number} n
- * @return {Function} counter
+ * @param {*} val
+ * @return {Object}
  */
-var createCounter = function (n) {
-  let currentValue = n;
-  return function () {
-    let result = currentValue;
-    currentValue += 1;
-    return result;
+var expect = function (val) {
+  return {
+    toBe: function (compareValue) {
+      if (val === compareValue) {
+        return true;
+      } else {
+        throw new Error("Not Equal");
+      }
+    },
+    notToBe: function (compareValue) {
+      if (val !== compareValue) {
+        return true;
+      } else {
+        throw new Error("Equal");
+      }
+    },
   };
 };
 
 /**
- * const counter = createCounter(10)
- * counter() // 10
- * counter() // 11
- * counter() // 12
+ * expect(5).toBe(5); // true
+ * expect(5).notToBe(5); // throws "Equal"
  */
